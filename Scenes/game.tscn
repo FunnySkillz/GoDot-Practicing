@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfm26s7uit73k"]
+
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_j4x37"]
+[ext_resource type="PackedScene" uid="uid://treodhm0w32h" path="res://Scenes/character_body_2d.tscn" id="2_26kg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f4ru"]
+size = Vector2(1162.25, 52.5)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_j4x37")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_26kg5")]
+position = Vector2(535, 375)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(582.875, 648.25)
+shape = SubResource("RectangleShape2D_6f4ru")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -581.875
+offset_top = -25.25
+offset_right = 583.125
+offset_bottom = 14.75
+color = Color(0.203526, 2.91913e-05, 0.204428, 1)
